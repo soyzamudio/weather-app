@@ -1,0 +1,36 @@
+{
+  "name": "Weather",
+  "description": "Weather App",
+  "homepage": "https://github.com/soyzamudio/weather-app",
+  "keywords": [
+    "gulp",
+    "jshint",
+    "jscs",
+    "server"
+  ],
+  "author": "Jose Zamudio <jose@josezamudio.me>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/soyzamudio/weather-app.git"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "start": "PORT=3333 node server/app.js",
+    "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.3.4",
+    "morgan": "^1.5.1",
+    "serve-static": "^1.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-copy": "0.0.2",
+    "gulp-jade": "^0.11.0",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2",
+    "gulp-less": "2.0.1",
+    "jshint-stylish": "^1.0.0"
+  }
+}

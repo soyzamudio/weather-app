@@ -1,0 +1,12 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "homepage": "https://github.com/soyzamudio/weather-app",
+  "authors": [
+    "Jose Zamudio <jose@josezamudio.me>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
