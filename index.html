@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Forecast</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body ng-app="forecast" ng-controller="ForecastController">
+    <section id="top">
+      <div id="search" class="col-md-12 text-center">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="input-group"><span class="input-group-btn">
+              <button type="button" ng-click="getLocation()" class="btn btn-default"><i class="glyphicon glyphicon-map-marker"></i></button></span>
+            <input type="text" placeholder="Zip Code" ng-model="zipCode" class="form-control"><span class="input-group-btn">
+              <button type="button" ng-click="getWeather()" class="btn btn-default">Search</button></span>
+          </div>
+        </div>
+      </div>
+      <div id="today" class="container">
+        <div ng-show="!zipCode" class="row text-center">
+          <h3 id="city">Provide a location above...</h3>
+        </div>
+        <div ng-show="zipCode" class="row text-center">
+          <h3 id="city" class="col-md 12">{{ currentWeather.display_location.full }}</h3>
+          <h5 id="condition" class="col-md-12">{{ currentWeather.weather }}</h5>
+          <h1 id="current" class="col-md-12">{{ currentWeather.dewpoint_f }}˚</h1>
+        </div>
+      </div>
+    </section>
+    <section id="forecast">
+      <div class="container">
+        <div class="row">
+          <div ng-repeat="day in days" class="col-md-12 new-day">
+            <div class="col-md-4 text-left">
+              <h4 class="day">{{day.date.weekday}}<span ng-if="$first">Today</span></h4>
+            </div>
+            <div class="col-md-4 text-center"><img src="{{day.icon_url}}" alt="Forecast condition"></div>
+            <div class="col-md-4 text-right">
+              <h4 class="temp"><span id="max">{{day.high.fahrenheit}}˚</span><span id="min">{{day.low.fahrenheit}}˚</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>

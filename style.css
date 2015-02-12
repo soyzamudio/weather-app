@@ -1,0 +1,68 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: linear-gradient(#17202d, #20252b);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#top {
+  z-index: 0;
+}
+#top #search {
+  background: rgba(0, 0, 0, 0.3);
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+#top #today {
+  color: #fff;
+}
+#top #today #city {
+  font-size: 3em;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+#top #today #condition {
+  font-size: 1.5em;
+  margin-top: 2.5px;
+}
+#top #today #current {
+  font-size: 8em;
+  margin: 0px;
+}
+#forecast {
+  padding-top: 25px;
+  margin-bottom: 50px;
+  color: #fff;
+}
+#forecast .new-day {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#forecast .new-day .day {
+  margin-left: 50%;
+  padding-top: 6px;
+  font-weight: bolder;
+}
+#forecast .new-day .day span {
+  font-weight: normal;
+  margin-left: 15px;
+  color: #e9e9e9;
+}
+#forecast .new-day .image {
+  margin: -5px;
+  height: 40px;
+  width: auto;
+}
+#forecast .new-day .temp {
+  margin-right: 60%;
+  padding-top: 6px;
+}
+#forecast .new-day .temp #max {
+  margin-right: 15px;
+  font-weight: bolder;
+}
+#forecast .new-day .temp #min {
+  font-size: .8em;
+  font-weight: medium;
+}
