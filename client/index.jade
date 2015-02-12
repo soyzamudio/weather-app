@@ -2,9 +2,47 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Prototype
+    title Forecast
+    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800')
     link(rel='stylesheet', href='/style.css')
-  body
-    h1 Hello, World
+  body(ng-app='forecast', ng-controller='ForecastController')
+    section#top
+      .col-md-12.text-center#search
+        .col-md-4
+        .col-md-4
+          .input-group
+            span.input-group-btn
+              button.btn.btn-default(type='button', ng-click='getLocation()')
+                i.glyphicon.glyphicon-map-marker
+                input.form-control(type='text', placeholder='Zip Code', ng-model='zipCode' ng-model-options='debounce: {"default": 500}')
+            span.input-group-btn
+              button.btn.btn-default(type='button', ng-click='getWeather()') Search
+
+      .container#today
+        .row.text-center(ng-show='!zipCode')
+          h3#city Provide a location above...
+        .row.text-center(ng-show='zipCode')
+          h3#city.col-md.12 {{ currentWeather.display_location.full }}
+          h5#condition.col-md-12 {{ currentWeather.weather }}
+          h1#current.col-md-12 {{ currentWeather.dewpoint_f }}&deg;
+
+    section#forecast
+      .container(ng-show='zipCode')
+        .row
+          .col-md-12.new-day(ng-repeat='day in days')
+            .col-md-4.text-right
+              h4.day {{day.date.weekday}}
+                span(ng-if='$first") Today
+            .col-md-4.text-center
+              img(src='{{day.icon_url}}', alt='Forecast condition')
+            .col-md-4.text-left
+              h4.temp
+              span#max {{day.high.fahrenheit}}&deg;
+              span#min {{day.low.fahrenheit}}&deg;
+
+
+
     script(src='/vendor/jquery/dist/jquery.js')
+    script(src='/vendor/angular/angular.js')
     script(src='/main.js')
